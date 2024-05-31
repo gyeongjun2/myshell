@@ -31,7 +31,7 @@ int main() {
         exit(1);
     }
 
-    long size = read(fd, buf, sizeof(buf) - 1);
+    int size = read(fd, buf, sizeof(buf) - 1);
     if (size < 0) {
         perror("읽기 실패");
         close(fd);
@@ -146,18 +146,18 @@ int main() {
             }
         }
         if (found) {
-            pid_t pid = fork();
-            if (pid < 0) {
-                perror("Fork 실패");
-                exit(1);
-            }
+            int pid = fork();
             if (pid == 0) {
                 execv(full_path, argv);
-                perror("execv 실패!");
+                perror("execv 실패");
                 exit(1);
-            } else {
+            } else if (pid > 0) {
                 int status;
-                waitpid(pid, &status, 0);
+                if (wait(&status) == -1) {
+                    perror("wait 실패");
+                }
+            } else {
+                perror("fork 실패");
             }
         } else {
             printf("Command not found\n");
@@ -166,4 +166,3 @@ int main() {
 
     return 0;
 }
-
