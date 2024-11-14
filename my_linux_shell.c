@@ -11,32 +11,36 @@
 #define MAX_PATH 256
 
 void sigint_handler(int sig) {
-	if(sig == SIGINT){
-		printf("\n종료하시려면 'Ctrl+|'(QUIT)을 사용하세요.\n");	
-	}
+    if (sig == SIGINT) {
+        printf("\n종료하시려면 'Ctrl+|'(QUIT)을 사용하세요.\n");
+    }
 }
+
+void error_handling(char *message){
+    fputs(message, stderr);
+    fputc('\n', stderr);
+    exit(1);
+}
+
 
 int main() {
     char line[MAX], *pathPtr[MAX_PATH];
-    char path[100][MAX];
+    char path[128][MAX];
     char buf[MAX];
 
     int count = 0;
     int fd;
 
-    // .myshell 파일 읽고 pathPtr 설정
     fd = open(".myshell", O_RDONLY);
     if (fd < 0) {
-        perror(".myshell을 읽을 수 없습니다.");
-        exit(1);
+        error_handling("cant read '.myshell'");
     }
 
     int size = read(fd, buf, sizeof(buf) - 1);
     if (size < 0) {
-        perror("읽기 실패");
-        close(fd);
-        exit(1);
+        error_handling("read() error");
     }
+
     buf[size] = '\0';
     close(fd);
 
@@ -55,8 +59,7 @@ int main() {
         ptr = strtok(NULL, "\n");
     }
 
-
-    // Ctrl+C 무시
+    
     signal(SIGINT, sigint_handler);
 
     while (1) {
@@ -77,28 +80,28 @@ int main() {
         if (strncmp(line, "cd ", 3) == 0) {
             char *dir = line + 3;
             if (chdir(dir) != 0) {
-                perror("디렉토리를 변경할 수 없습니다");
+                perror("cant change directory");
             }
             continue;
         }
 
         // 'gcc' 명령어 처리
         if (strncmp(line, "gcc ", 4) == 0) {
-            pid_t pid = fork();
+            char *argv[MAX];
+            int i = 0;
+            argv[i] = strtok(line, " ");
+            while (argv[i] != NULL) {
+                argv[++i] = strtok(NULL, " ");
+            }
+            argv[i] = NULL;
+
+            int pid = fork();
             if (pid < 0) {
-                perror("Fork 실패");
-                exit(1);
+                error_handling("fork() error");
             }
             if (pid == 0) {
-                char *argv[256];
-                int i = 0;
-                argv[i] = strtok(line, " ");
-                while (argv[i] != NULL) {
-                    argv[++i] = strtok(NULL, " ");
-                }
                 execvp("gcc", argv);
-                perror("gcc 실행 실패");
-                exit(1);
+                error_handling("execvp() error");
             } else {
                 int status;
                 waitpid(pid, &status, 0);
@@ -106,22 +109,20 @@ int main() {
             continue;
         }
 
-        // './a.out' 명령어 처리
-        if (strcmp(line, "./a.out") == 0) {
-            if (access("./a.out", X_OK) != 0) {
-                perror("a.out 실행 파일을 찾을 수 없습니다!!!");
+        // './a.exe' 명령어 처리
+        if (strcmp(line, "./a.exe") == 0) {
+            if (access("./a.exe", F_OK) != 0) {
+                perror("cant find a.exe");
                 continue;
             }
-            pid_t pid = fork();
+            int pid = fork();
             if (pid < 0) {
-                perror("Fork 실패");
-                exit(1);
+                error_handling("fork() error");
             }
             if (pid == 0) {
-                char *argv[] = {"./a.out", NULL};
-                execv("./a.out", argv);
-                perror("./a.out 실행 실패");
-                exit(1);
+                char *argv[] = {"./a.exe", NULL};
+                execv("./a.exe", argv);
+                error_handling("execv() error");
             } else {
                 int status;
                 waitpid(pid, &status, 0);
@@ -129,18 +130,19 @@ int main() {
             continue;
         }
 
-        char *argv[256];
+        char *argv[MAX];
         int i = 0;
         argv[i] = strtok(line, " ");
         while (argv[i] != NULL) {
             argv[++i] = strtok(NULL, " ");
         }
+        argv[i] = NULL;
 
-        char full_path[256];
+        char full_path[MAX];
         int found = 0;
         for (int j = 0; j < count; j++) {
             snprintf(full_path, sizeof(full_path), "%s/%s", pathPtr[j], argv[0]);
-            if (access(full_path, X_OK) == 0) {
+            if (access(full_path, F_OK) == 0) {
                 found = 1;
                 break;
             }
@@ -149,15 +151,14 @@ int main() {
             int pid = fork();
             if (pid == 0) {
                 execv(full_path, argv);
-                perror("execv 실패");
-                exit(1);
+                error_handling("execv() error");
             } else if (pid > 0) {
                 int status;
                 if (wait(&status) == -1) {
-                    perror("wait 실패");
+                    perror("wait(): ");
                 }
             } else {
-                perror("fork 실패");
+                perror("fork(): ");
             }
         } else {
             printf("Command not found\n");
