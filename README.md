@@ -25,13 +25,13 @@
 
 **기본 리눅스 쉘 기능**
 
-<img src="https://github.com/user-attachments/assets/c82a8146-8a6e-40c2-ba33-23e53bece185" width="300" height="400"/>
+<img src="https://github.com/user-attachments/assets/c82a8146-8a6e-40c2-ba33-23e53bece185" width="400" height="300"/>
 
 - 사용자가 입력한 명령어를 분석하고 실행하여 결과를 반환하는 기본적인 쉘 역할 수행
 
 **다중 인자 처리**
 
-<img src="https://github.com/user-attachments/assets/e5a8e4b8-bef9-464c-8524-cc51bc40e9c5" width="300" height="400"/>
+<img src="https://github.com/user-attachments/assets/e5a8e4b8-bef9-464c-8524-cc51bc40e9c5" width="400" height="300"/>
 
 - ls -a와 같은 여러 인자가 있는 명령어를 처리할 수 있도록 구현
 
@@ -43,9 +43,9 @@
 
 **시그널 처리**
 
-<img src="https://github.com/user-attachments/assets/fbc82f16-e9ed-40ce-a5ff-ffaa9351d35e" width="300" height="400"/>
-<img src="https://github.com/user-attachments/assets/9146f294-3d35-43e6-9ac4-73b439e04557" width="300" height="400"/>
-<img src="https://github.com/user-attachments/assets/aabf5528-93d4-4494-8741-411ff1cd24bc" width="300" height="400"/>
+<img src="https://github.com/user-attachments/assets/fbc82f16-e9ed-40ce-a5ff-ffaa9351d35e" width="300" height="200"/>
+<img src="https://github.com/user-attachments/assets/9146f294-3d35-43e6-9ac4-73b439e04557" width="300" height="200"/>
+<img src="https://github.com/user-attachments/assets/aabf5528-93d4-4494-8741-411ff1cd24bc" width="300" height="200"/>
 
 - SIGINT 시그널을 무시하여 쉘이 중단되지 않도록 처리
 
