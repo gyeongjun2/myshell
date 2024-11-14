@@ -43,9 +43,9 @@
 
 **시그널 처리**
 
-<img src="https://github.com/user-attachments/assets/fbc82f16-e9ed-40ce-a5ff-ffaa9351d35e" width="300" height="200"/>
-<img src="https://github.com/user-attachments/assets/9146f294-3d35-43e6-9ac4-73b439e04557" width="300" height="200"/>
-<img src="https://github.com/user-attachments/assets/aabf5528-93d4-4494-8741-411ff1cd24bc" width="300" height="200"/>
+<img src="https://github.com/user-attachments/assets/fbc82f16-e9ed-40ce-a5ff-ffaa9351d35e" width="300" height="100"/>
+<img src="https://github.com/user-attachments/assets/9146f294-3d35-43e6-9ac4-73b439e04557" width="300" height="100"/>
+<img src="https://github.com/user-attachments/assets/aabf5528-93d4-4494-8741-411ff1cd24bc" width="300" height="100"/>
 
 - SIGINT 시그널을 무시하여 쉘이 중단되지 않도록 처리
 
