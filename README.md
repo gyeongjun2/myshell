@@ -25,7 +25,7 @@
 
 **기본 리눅스 쉘 기능**
 
-<img src="https://github.com/user-attachments/assets/c82a8146-8a6e-40c2-ba33-23e53bece185" width="400" height="300"/>
+<img src="https://github.com/user-attachments/assets/cc7fa4ff-30bd-4ded-add8-43dc2b217a45" width="400" height="400"/>
 
 - 사용자가 입력한 명령어를 분석하고 실행하여 결과를 반환하는 기본적인 쉘 역할 수행
 
