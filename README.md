@@ -31,21 +31,21 @@
 
 **다중 인자 처리**
 
-<img src="https://github.com/user-attachments/assets/5df6d46e-5503-4dd1-af3f-2af7b7a78c0f" width="400" height="300"/>
+<img src="https://github.com/user-attachments/assets/5df6d46e-5503-4dd1-af3f-2af7b7a78c0f" width="500" height="300"/>
 
 - ls -a와 같은 여러 인자가 있는 명령어를 처리할 수 있도록 구현
 
 **특정 프로그램 컴파일 & 실행**
 
-<img src="https://github.com/user-attachments/assets/447479ff-7e8e-4fbf-af38-83319703793f" width="300" height="400"/>
+<img src="https://github.com/user-attachments/assets/447479ff-7e8e-4fbf-af38-83319703793f" width="500" height="400"/>
 
 - gcc와 같은 컴파일러 명령어, ./a.exe와 같은 실행 파일 명령어를 인식하고 처리
 
 **시그널 처리**
 
-<img src="https://github.com/user-attachments/assets/fbc82f16-e9ed-40ce-a5ff-ffaa9351d35e" width="300" height="100"/>
-<img src="https://github.com/user-attachments/assets/9146f294-3d35-43e6-9ac4-73b439e04557" width="300" height="100"/>
-<img src="https://github.com/user-attachments/assets/592913d2-5353-4b67-8154-12432dd3650e" width="300" height="100"/>
+<img src="https://github.com/user-attachments/assets/fbc82f16-e9ed-40ce-a5ff-ffaa9351d35e" width="400" height="100"/>
+<img src="https://github.com/user-attachments/assets/9146f294-3d35-43e6-9ac4-73b439e04557" width="400" height="100"/>
+<img src="https://github.com/user-attachments/assets/592913d2-5353-4b67-8154-12432dd3650e" width="400" height="100"/>
 
 - SIGINT 시그널을 무시하여 쉘이 중단되지 않도록 처리
 
