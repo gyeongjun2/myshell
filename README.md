@@ -19,25 +19,25 @@
 
 주요 언어 : C언어
 
-개발 환경 : liunx
+개발 환경 : Linux
 
 ## 핵심 기능
 
 **기본 리눅스 쉘 기능**
 
-<img src="https://github.com/user-attachments/assets/cc7fa4ff-30bd-4ded-add8-43dc2b217a45" width="500" height="300"/>
+<img src="https://github.com/user-attachments/assets/440924ad-f357-4280-aaa8-3200c2bd46c4" width="500" height="300"/>
 
 - 사용자가 입력한 명령어를 분석하고 실행하여 결과를 반환하는 기본적인 쉘 역할 수행
 
 **다중 인자 처리**
 
-<img src="https://github.com/user-attachments/assets/e5a8e4b8-bef9-464c-8524-cc51bc40e9c5" width="400" height="300"/>
+<img src="https://github.com/user-attachments/assets/5df6d46e-5503-4dd1-af3f-2af7b7a78c0f" width="400" height="300"/>
 
 - ls -a와 같은 여러 인자가 있는 명령어를 처리할 수 있도록 구현
 
 **특정 프로그램 컴파일 & 실행**
 
-<img src="https://github.com/user-attachments/assets/2bcd3ddc-babb-4afc-8af2-e43aafb1ff82" width="300" height="400"/>
+<img src="https://github.com/user-attachments/assets/447479ff-7e8e-4fbf-af38-83319703793f" width="300" height="400"/>
 
 - gcc와 같은 컴파일러 명령어, ./a.exe와 같은 실행 파일 명령어를 인식하고 처리
 
@@ -45,7 +45,7 @@
 
 <img src="https://github.com/user-attachments/assets/fbc82f16-e9ed-40ce-a5ff-ffaa9351d35e" width="300" height="100"/>
 <img src="https://github.com/user-attachments/assets/9146f294-3d35-43e6-9ac4-73b439e04557" width="300" height="100"/>
-<img src="https://github.com/user-attachments/assets/aabf5528-93d4-4494-8741-411ff1cd24bc" width="300" height="100"/>
+<img src="https://github.com/user-attachments/assets/592913d2-5353-4b67-8154-12432dd3650e" width="300" height="100"/>
 
 - SIGINT 시그널을 무시하여 쉘이 중단되지 않도록 처리
 
